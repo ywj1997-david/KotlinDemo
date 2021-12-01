@@ -1,15 +1,16 @@
-package com.ywj.kotlindemo
+package com.ywj.kotlindemo.activity
 
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
 import android.widget.Toast
+import coil.load
+import com.ywj.kotlindemo.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -27,7 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        //使用coil；它的全名叫做coroutine image loader,即协程图片加载库
+        image.load(R.drawable.pic)
         setupFlow()
         setupClicks()
 
@@ -73,13 +75,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun setupFlow() {
+    private fun setupFlow() {
         flow = flow {
-            Log.d(Companion.TAG, "Start flow")
+            Log.d(TAG, "Start flow")
             (0..10).forEach {
                 // 以500ms的延迟发出从0到10的数字。
                 delay(500)
-                Log.d(Companion.TAG, "Emitting $it")
+                Log.d(TAG, "Emitting $it")
                 emit(it)
 
             }
@@ -92,7 +94,7 @@ class MainActivity : AppCompatActivity() {
         tvTest.setOnClickListener {
             CoroutineScope(Dispatchers.Main).launch {
                 flow.collect {
-                    Log.d(Companion.TAG, it.toString())
+                    Log.d(TAG, it.toString())
                 }
             }
         }
