@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        //测试
         //使用coil；它的全名叫做coroutine image loader,即协程图片加载库
         image.load(R.drawable.pic)
         setupFlow()
