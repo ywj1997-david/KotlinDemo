@@ -33,23 +33,6 @@ class MainActivity : AppCompatActivity() {
         image.load(R.drawable.pic)
         setupFlow()
         setupClicks()
-
-//        tvTest.setOnClickListener {
-        //跳转
-//            Toast.makeText(this, "点击了", Toast.LENGTH_SHORT).show()
-//            val intent = Intent(this, SecondActivity::class.java)
-//            intent.putExtra("data", "1")
-//            startActivity(intent)
-
-        //打开一个浏览器
-//            val intent = Intent(Intent.ACTION_VIEW)
-//            intent.data = Uri.parse("https://www.baidu.com")
-//            startActivity(intent)
-
-        //数据返回给上一个Activity
-//            val intent = Intent(this, SecondActivity::class.java)
-//            startActivityForResult(intent, 1)
-//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
