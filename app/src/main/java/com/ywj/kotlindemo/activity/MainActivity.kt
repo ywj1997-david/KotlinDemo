@@ -19,8 +19,9 @@ import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
+    //测试
     companion object {
-        private const val TAG = "MainActivity"
+        private const val TAG = "mainactivity"
     }
 
     lateinit var flow: Flow<Int>
